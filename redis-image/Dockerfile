@@ -1,0 +1,10 @@
+# Use an existing DI as a base
+FROM alpine
+
+
+# Download and install a dependency
+RUN apk add --update redis
+
+
+#tell the image what to do when it start as a container
+CMD ["redis-server"]
