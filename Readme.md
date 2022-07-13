@@ -67,3 +67,15 @@ To list all files that would be deleted:
   102. docker-compose up -d
   103. docker-compose down
   104. docker-compose up --build
+
+  ## Volumes
+
+  200. docker build -f Dockerfile.dev -t razvanescu/[Project]:[tag] .   //DON'T FORGET about .
+  201. docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image_id>
+  
+  ## Execute commands in containner
+
+  202. docker run -it razvanescu/frontend npm run test
+  203. 083 => 
+
+  204. 093 => 
