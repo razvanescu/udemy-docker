@@ -67,3 +67,57 @@ To list all files that would be deleted:
   102. docker-compose up -d
   103. docker-compose down
   104. docker-compose up --build
+
+# Chapter 6
+  ## Volumes
+  
+  `200. docker build -f Dockerfile.dev -t razvanescu/[Project]:[tag] .   `
+  
+  DON'T FORGET about .
+
+---  
+  #### INFO VOLUME MAPPING CHAPTER 6 073
+---
+
+```docker
+docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image_id>
+```
+
+```diff
+-  INFO
+-  $(pwd) represnt the current folder and it will be mapped into containner.
+-  -v /app/node_modules  : this will let a folder from destination to not be mapped with OS file.
+```
+$(pwd) represnt the current folder and it will be mapped into containner.
+-v /app/node_modules  : this will let a folder from destination to not be mapped with OS file.
+
+## Execute commands in containner
+
+  202. docker run -it razvanescu/frontend npm run test
+
+---  
+  #### Multy Step Phase Process 6 090
+---
+
+
+
+```docker
+FROM node:alpine as builder
+WORKDIR '/app'
+COPY package.json .
+RUN npm install
+COPY . .
+RUN npm run build
+
+FROM nginx
+COPY --from=builder /app/build /usr/share/nginx/html
+```
+
+# Chapter 7
+
+```diff
+! GITHUB
+! Travis CI
+! AWS
+```
+
