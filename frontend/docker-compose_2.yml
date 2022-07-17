@@ -1,8 +1,6 @@
 version: '3'
 services:
   web:
-    container_name: razvanescu-compose-frontend-2.0
-    image: razvanescu/frontend-compose-dev2:1.0
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -12,12 +10,10 @@ services:
       - /app/node_modules
       - .:/app
   tests:
-    container_name: razvanescu-compose-frontend-test-2.0
-    image: razvanescu/frontend-compose-test-dev2:1.0
     build:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
       - /app/node_modules
       - .:/app
-    command: ["npm","run","test"]
+    command: ["npm", "run", "test"]
